@@ -1,0 +1,193 @@
+[gd_scene load_steps=17 format=3 uid="uid://dpn18kkb75xnc"]
+
+[ext_resource type="Texture2D" uid="uid://cnpco5jd73xkl" path="res://UI/dino_brackground.jpg" id="1_p2rex"]
+[ext_resource type="Script" path="res://UI/game_setup.gd" id="1_pqgs2"]
+[ext_resource type="FontFile" uid="uid://cnjulkobp3vbk" path="res://assets/GravityRegular5.ttf" id="2_3ecxs"]
+[ext_resource type="Texture2D" uid="uid://csvk8dp0ppdjv" path="res://Dino/DinoSprites - doux.png" id="4_ofrol"]
+[ext_resource type="Texture2D" uid="uid://b1wvjc3ob5j3m" path="res://UI/SPACE.png" id="5_gkjsa"]
+[ext_resource type="Texture2D" uid="uid://bx3jynry1d7tx" path="res://UI/S.png" id="6_ocwyw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4axk"]
+atlas = ExtResource("4_ofrol")
+region = Rect2(288, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j37ot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4axk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cocsr"]
+atlas = ExtResource("4_ofrol")
+region = Rect2(408, 0, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jsarh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cocsr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cepr"]
+atlas = ExtResource("5_gkjsa")
+region = Rect2(0, 0, 67, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7atin"]
+atlas = ExtResource("5_gkjsa")
+region = Rect2(67, 0, 67, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tkpll"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cepr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7atin")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h7lns"]
+atlas = ExtResource("6_ocwyw")
+region = Rect2(0, 0, 17, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_buabv"]
+atlas = ExtResource("6_ocwyw")
+region = Rect2(17, 0, 17, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bgcxp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h7lns")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_buabv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="GameSetup" type="CanvasLayer"]
+script = ExtResource("1_pqgs2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -571.0
+offset_top = -390.0
+offset_right = 1729.0
+offset_bottom = 1146.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_p2rex")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 8.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 40
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_3ecxs")
+theme_override_font_sizes/font_size = 48
+text = "insert your name"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 15
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="DisplayName" type="TextEdit" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3ecxs")
+placeholder_text = "Name"
+scroll_fit_content_height = true
+
+[node name="StartGame" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_3ecxs")
+text = "Start Game"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="Jump" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(-36, 20)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_j37ot")
+autoplay = "default"
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_3ecxs")
+theme_override_font_sizes/font_size = 48
+text = "JUMP:"
+
+[node name="Label3" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("2_3ecxs")
+theme_override_font_sizes/font_size = 48
+text = "CROUCH:"
+
+[node name="Crouch" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(-44, 76)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_jsarh")
+
+[node name="Space" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(372, 20)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_tkpll")
+autoplay = "default"
+frame_progress = 0.112082
+
+[node name="S" type="AnimatedSprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(364, 84)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_bgcxp")
+autoplay = "default"
+frame_progress = 0.50155
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/StartGame" to="." method="_on_start_game_pressed"]

@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bkuhgonn76amw"]
+
+[ext_resource type="Script" path="res://levels/main.gd" id="1_4b13h"]
+[ext_resource type="PackedScene" uid="uid://bk42ateh1kqfw" path="res://Levels/parallax_background.tscn" id="1_j5wkq"]
+[ext_resource type="PackedScene" uid="uid://djvx3rmymfrgf" path="res://Levels/ground.tscn" id="2_xekc7"]
+[ext_resource type="PackedScene" uid="uid://c8kvrqkpxc85j" path="res://Dino/dino.tscn" id="3_sgkr1"]
+[ext_resource type="PackedScene" uid="uid://coitsaveurtbk" path="res://UI/game_screen.tscn" id="5_7ap3o"]
+[ext_resource type="FontFile" uid="uid://cnjulkobp3vbk" path="res://assets/GravityRegular5.ttf" id="6_c6lwh"]
+[ext_resource type="PackedScene" uid="uid://wejdr7523fxa" path="res://UI/die_screen.tscn" id="6_rbiqk"]
+
+[node name="Main" type="Node"]
+script = ExtResource("1_4b13h")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_j5wkq")]
+
+[node name="Ground" parent="." instance=ExtResource("2_xekc7")]
+
+[node name="Dino" parent="." instance=ExtResource("3_sgkr1")]
+position = Vector2(80, 512)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="GameScreen" parent="." instance=ExtResource("5_7ap3o")]
+
+[node name="DieScreen" parent="." instance=ExtResource("6_rbiqk")]
+visible = false
+
+[node name="CountDown" type="Button" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -37.0
+offset_right = 37.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_c6lwh")
+theme_override_font_sizes/font_size = 66
+text = "5
+"

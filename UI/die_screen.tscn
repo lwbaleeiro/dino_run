@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://wejdr7523fxa"]
+
+[ext_resource type="Script" path="res://UI/die_screen.gd" id="1_75y7i"]
+[ext_resource type="FontFile" uid="uid://cnjulkobp3vbk" path="res://assets/GravityRegular5.ttf" id="1_xoauk"]
+
+[node name="DieScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_75y7i")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_xoauk")
+theme_override_font_sizes/font_size = 48
+text = "YOU DIE!"
+
+[node name="LabelScore" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_xoauk")
+theme_override_font_sizes/font_size = 24
+text = "YOUR SCORE: 0"
+
+[node name="PlayAgain" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Play Again"
+
+[node name="QuitGame" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Quit Game
+"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PlayAgain" to="." method="_on_play_again_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/QuitGame" to="." method="_on_quit_game_pressed"]

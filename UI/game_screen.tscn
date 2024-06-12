@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://coitsaveurtbk"]
+
+[ext_resource type="Script" path="res://UI/game_screen.gd" id="1_mugnk"]
+[ext_resource type="FontFile" uid="uid://cnjulkobp3vbk" path="res://assets/GravityRegular5.ttf" id="2_1n6tl"]
+
+[node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_mugnk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_override_fonts/font = ExtResource("2_1n6tl")
+text = "Score:"
+
+[node name="LabelScore" type="Label" parent="VBoxContainer/HBoxContainer3/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1n6tl")
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 6
+alignment = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1n6tl")
+text = "Best Score:"
+
+[node name="LabelBestScore" type="Label" parent="VBoxContainer/HBoxContainer3/HBoxContainer2"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1n6tl")
+text = "0"
